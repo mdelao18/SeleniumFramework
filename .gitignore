@@ -25,3 +25,7 @@ hs_err_pid*
 #Ignorar
 .idea/*
 .iml
+.json
+.yml
+target/*
+.allure

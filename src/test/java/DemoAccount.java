@@ -21,37 +21,43 @@ public class DemoAccount {
     @Test
     public void test_capabilities() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--window-size=1700,800");//tamano de la pagina
-        options.addArguments("--headless"); // hace la prueba pero no levanta el browser
-        // options.setHeadless(true); es lo mismo de la opcion de arriba
-        options.setAcceptInsecureCerts(true); // acepta sitios inseguros
+        options.addArguments("--window-size=1700,800");
+        options.addArguments("--headless");
+        options.setHeadless(true);
+        options.setAcceptInsecureCerts(true);
 
         WebDriver driver = new ChromeDriver(options);
         driver.get("https://expired.badssl.com/");
         Assert.assertTrue(driver.findElement(By.id("content")).isDisplayed());
-
-        //driver.manage().window().maximize(); // maximiza la pantalla
+        //driver.manage().window().maximize();
+        driver.quit();
+        driver.close();
     }
 
     @Test
     public void test_waits() {
         WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        // driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); hace lo mismo de arriba
-        driver.get("https://www.seleniumeasy.com/test/jquery-download-progress-bar-demo.html");
-        driver.findElement(By.id("donwnloadButton")).click();
-        boolean result = false;
-        //manejo excepciones
-        try {
-            result = wait.until(ExpectedConditions.textToBe(By.className("progress-label"), "Complete!"));
-        } catch (WebDriverException exception) {
-            System.out.println("No funciona");
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
+        driver.get("https://www.seleniumeasy.com/test/jquery-download-progress-bar-demo.html");
+        driver.findElement(By.id("downloadButton")).click();
+
+        boolean result = false;
+        //manejo de exepciones
+        try{
+            result = wait.until(
+                    ExpectedConditions.textToBe(
+                            By.className("progress-label"),"Complete!"));
+        }
+        catch (WebDriverException exception){
+            System.out.println("No funcionó");
         }
 
+        driver.close();
+        driver.quit();
     }
 
-    @Test
+   /* @Test
     public void drag_and_Drop() {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.seleniumeasy.com/test/drag-and-drop-demo.html");
@@ -72,7 +78,7 @@ public class DemoAccount {
         WebElement dropeado = driver.findElement(By.xpath("//div[@id='droppedList']/span[text()=Draggable 1"));
         Assert.assertTrue(dropeado.isDisplayed());
     }
-
+*/
 
 }
 
