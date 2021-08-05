@@ -22,7 +22,7 @@ public class DemoAccount {
     public void test_capabilities() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1700,800");
-        options.addArguments("--headless");
+       // options.addArguments("--headless");
         options.setHeadless(true);
         options.setAcceptInsecureCerts(true);
 
