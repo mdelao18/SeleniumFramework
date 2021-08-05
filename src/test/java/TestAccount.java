@@ -38,7 +38,7 @@ public class TestAccount {
         WebElement logOutButton = driver.findElement(By.linkText("Logout"));
         Assert.assertTrue(logOutButton.isDisplayed());
 
-        TakesScreenshot(driver);
+        TakeScreenshot(driver);
 
         driver.close();
         driver.quit();
@@ -79,13 +79,13 @@ public class TestAccount {
 
         WebElement alertMessage = driver.findElement(By.xpath("//div[contains(@class, 'alert-danger')]"));
         Assert.assertEquals(expectedMessage.toLowerCase(), alertMessage.getText().toLowerCase().trim());// trim borra espacios a los lados, izq y dere,
-        TakesScreenshot(driver);
+        TakeScreenshot(driver);
         driver.close();
         driver.quit();
     }
 
     @Attachment(value = "screenshot", type = "image/png")
-    public byte[] TakesScreenshot(WebDriver driver) {
+    public byte[] TakeScreenshot(WebDriver driver){
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
