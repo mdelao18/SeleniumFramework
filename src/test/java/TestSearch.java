@@ -20,8 +20,8 @@ public class TestSearch extends BaseClass {
 
         Assert.assertTrue(driver.getCurrentUrl().contains("search="+searchCriteria));
 
-        // Assert.assertEquals(results.size(), expectedResult,
-        //        String.format("Expecting %s results, but got %s", expectedResult, results.size()));
+        //Assert.assertEquals(results.size(), expectedResult,
+        //String.format("Expecting %s results, but got %s", expectedResult, results.size()));
 
         Assert.assertEquals(getResults(), results,
                 "Expecting " + expectedResult + " results, but got " + getResults());
@@ -36,9 +36,8 @@ public class TestSearch extends BaseClass {
         searchInput.sendKeys(searchCriteria, Keys.ENTER);
 
         //Assert.assertTrue(driver.getCurrentUrl().contains("search="+searchCriteria));
-
         //Assert.assertEquals(results.size(), expectedResult,
-        //        String.format("Expecting %s results, but got %s", expectedResult, results.size()));
+        //String.format("Expecting %s results, but got %s", expectedResult, results.size()));
 
         Assert.assertEquals(getResults(), expectedResult,
                 "Expecting " + expectedResult + " results, but got " + getResults());

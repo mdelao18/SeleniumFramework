@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class BaseClass {
@@ -20,19 +21,24 @@ public class BaseClass {
         //System.out.println("*Esto corre una sola vez");
 
     }
+
     @Parameters({"browser"})
     @BeforeMethod
-    public void beforeMethod(@Optional("Chrome") String browser) {
-        //System.out.println("*Este corre dos veces, una vez por cada prueba");
+    public void beforeMethod(@Optional("Chrome") String browser) throws MalformedURLException,InterruptedException  {
+        //WebDriverManager caps =  WebDriverManager.firefoxdriver();
+        //DesiredCapabilities caps = DesiredCapabilities.chrome();
+        // String node = "http://localhost:444/wd/hub";
+        //  driver = new RemoteWebDriver(new URL(node), caps);
 
-        switch (browser){
+
+        switch (browser) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
             case "IE":
                 WebDriverManager.iedriver().setup();
-                driver =  new InternetExplorerDriver();
+                driver = new InternetExplorerDriver();
                 break;
             default:
                 WebDriverManager.chromedriver().setup();
@@ -42,14 +48,10 @@ public class BaseClass {
         driver.manage().window().maximize();
         driver.get("https://demo.opencart.com/");
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-    }
-
-
-    @AfterTest
-    public void afterTest(){
 
 
     }
+
 
     @AfterMethod
     public void afterMethod() {
