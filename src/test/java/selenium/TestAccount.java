@@ -1,3 +1,5 @@
+package selenium;
+
 import PageObjects.HeaderPage;
 import PageObjects.LoginPage;
 import PageObjects.RegisterPage;
@@ -6,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import PageObjects.BaseClass;
 
 
 public class TestAccount extends BaseClass {
@@ -79,9 +82,9 @@ public class TestAccount extends BaseClass {
     @Test(description = "Test Create New User")
     public void Test_Create_New_Account() {
         //SETUP
-        String firstName = "Carlos";
-        String lastName = "Esquivel";
-        String email = "carlos@esquivel.com";
+        String firstName = "Luis";
+        String lastName = "Perez";
+        String email = "luis@perez.com";
         String telephone = "85874596";
         String password = "54321";
         String expectedMessage = "Your Account Has Been Created!";
