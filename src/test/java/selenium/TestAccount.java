@@ -16,30 +16,6 @@ import java.util.Locale;
 
 public class TestAccount extends BaseClass {
 
-    /*
-        EJEMPLO DE LISTAS Y WEBELEMENTS SOLOS
-        WebElement WishList = driver.findElement(By.linkText("Wish List"));
-        ArrayList<> WishListList = driver.findElements(By.linkText("Wish List"));
-    */
-
-    /*Test Driven Development
-     * AS A USER I want to be to able to login properly
-     *
-     * GIVEN I am at login page
-     * AND I log in with juan.piedra@ucreativa and asdf
-     * WHEN when user is at dashboard page
-     * THEN logout button is displayed
-     * */
-
-    /* @Description("Validate that the login with specials credentials")
-    @Test(description = "Test Login Success")
-    public void Test_Login_Admin() {
-        LoginPage loginPage = new LoginPage(driver);
-        String username = "admin";
-        String password = "12345";
-        loginPage.GoTo();
-        loginPage.login(username, password);
-    }*/
 
     public static final String  ERROR_EMAIL_AND_PASSWORD_INVALID_MESSAGE = "warning: no match for e-mail address and/or password.";
 
@@ -117,6 +93,31 @@ public class TestAccount extends BaseClass {
         //VALIDATION
         Assert.assertEquals(registerPage().GetConfirmationMessage(), expectedMessage);
     }
+
+        /*
+        EJEMPLO DE LISTAS Y WEBELEMENTS SOLOS
+        WebElement WishList = driver.findElement(By.linkText("Wish List"));
+        ArrayList<> WishListList = driver.findElements(By.linkText("Wish List"));
+    */
+
+    /*Test Driven Development
+     * AS A USER I want to be to able to login properly
+     *
+     * GIVEN I am at login page
+     * AND I log in with juan.piedra@ucreativa and asdf
+     * WHEN when user is at dashboard page
+     * THEN logout button is displayed
+     * */
+
+    /* @Description("Validate that the login with specials credentials")
+    @Test(description = "Test Login Success")
+    public void Test_Login_Admin() {
+        LoginPage loginPage = new LoginPage(driver);
+        String username = "admin";
+        String password = "12345";
+        loginPage.GoTo();
+        loginPage.login(username, password);
+    }*/
 
 }
 
