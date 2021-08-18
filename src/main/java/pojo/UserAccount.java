@@ -6,10 +6,10 @@ public class UserAccount {
     private String password;
     private boolean validAccount;
 
-    public UserAccount(String email, String password, boolean validAccount) {
-        this.email = email;
-        this.password = password;
-        this.validAccount = validAccount;
+    public UserAccount(String email, String password, boolean validAccount){
+        this.setEmail(email);
+        this.setPassword(password);
+        this.setValidAccount(validAccount);
     }
 
     public String getEmail() {
