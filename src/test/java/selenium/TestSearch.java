@@ -75,12 +75,13 @@ public class TestSearch extends BaseClass {
 
     }
 
-    @DataProvider(name = "searchEntries")
+    /*@DataProvider(name = "searchEntries")
     public Object[][] dataProvider(){
         return new Object[][]{
                 {"macbook",3},
                 {"star wars", 0}
         };
+     */
     }
 
 
@@ -97,4 +98,4 @@ public class TestSearch extends BaseClass {
      * */
 
 
-}
+

@@ -10,28 +10,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
-
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-public class BaseClass {
+public class BaseClass extends PageObjectHandler {
 
-    protected WebDriver driver;
-
-    @BeforeTest
-    public void before() {
-        //System.out.println("*Esto corre una sola vez");
-
-    }
+   protected WebDriver driver;
 
     @Parameters({"browser"})
     @BeforeMethod
     public void beforeMethod(@Optional("Chrome") String browser) throws MalformedURLException,InterruptedException  {
-        //WebDriverManager caps =  WebDriverManager.firefoxdriver();
-        //DesiredCapabilities caps = DesiredCapabilities.chrome();
-        // String node = "http://localhost:444/wd/hub";
-        //  driver = new RemoteWebDriver(new URL(node), caps);
-
 
         switch (browser) {
             case "firefox":
@@ -51,11 +39,10 @@ public class BaseClass {
         driver.get("https://demo.opencart.com/");
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
-
     }
 
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         TakeScreenshot();
         driver.close();
@@ -68,6 +55,7 @@ public class BaseClass {
 
     @Attachment(value = "screenshot", type = "image/png")
     public byte[] TakeScreenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+        return ((TakesScreenshot) this.driver).getScreenshotAs(OutputType.BYTES);
     }
 }

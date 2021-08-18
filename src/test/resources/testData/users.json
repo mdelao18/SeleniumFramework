@@ -1,0 +1,14 @@
+{
+  "dataSet": [
+    {
+      "email": "mdelao18@gmail.com",
+      "password": "2020meli123",
+      "ValidAccount": true
+    },
+    {
+      "email": "mdelao18@gmail.com",
+      "password": "12345",
+      "ValidAccount": false
+    }
+
+}
