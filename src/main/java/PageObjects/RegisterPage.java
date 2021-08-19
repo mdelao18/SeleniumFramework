@@ -3,10 +3,10 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RegisterPage {
-
+public class RegisterPage{
     private WebDriver driver;
 
+    //Elementos
     private By NameLocator = By.name("firstname");
     private By LastNameLocator = By.name("lastname");
     private By EmailLocator = By.name("email");
@@ -17,6 +17,7 @@ public class RegisterPage {
     private By TermsCheckBoxLocator = By.name("agree");
     private By ContinueButtonLocator = By.xpath("//input[@value='Continue']");
 
+
     public RegisterPage(WebDriver _driver){
         this.driver = _driver;
     }
@@ -26,9 +27,7 @@ public class RegisterPage {
         headerPage.clickOnRegisterButton();
     }
 
-
-    public void FillForm (String firstName, String lastName, String email, String telephone, String password){
-
+    public void FillForm(String firstName, String lastName, String email, String telephone, String password){
         driver.findElement(NameLocator).sendKeys(firstName);
         driver.findElement(LastNameLocator).sendKeys(lastName);
         driver.findElement(EmailLocator).sendKeys(email);
@@ -39,8 +38,9 @@ public class RegisterPage {
         driver.findElement(ContinueButtonLocator).click();
     }
 
-
     public String GetConfirmationMessage(){
         return driver.findElement(ConfirmRegisterMessageLocator).getText();
     }
+
+
 }

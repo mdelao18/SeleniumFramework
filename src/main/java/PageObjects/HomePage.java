@@ -15,7 +15,7 @@ public class HomePage extends BaseClass {
     }
 
     public void selectProductByName(String name) {
-        driver.findElement(By.xpath(HomePageLocators.FirstH4Locator.replace("<name>", "name"))).click();
+        driver.findElement(By.xpath(HomePageLocators.FirstH4Locator.replace("<name>", name))).click();
     }
 
     public String selectFirstProductAndGetName() {

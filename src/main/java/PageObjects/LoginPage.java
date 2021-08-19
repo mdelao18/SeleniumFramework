@@ -37,7 +37,7 @@ public class LoginPage {
     public void GoTo() {
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.clickOnMyAccount();
-        headerPage.ClickOnLoginButton();
+        headerPage.clickOnLoginButton();
 
     }
 

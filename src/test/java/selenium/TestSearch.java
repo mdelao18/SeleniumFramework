@@ -1,10 +1,11 @@
 package selenium;
 
-import PageObjects.SearchPage;
+//import PageObjects.SearchPage;
 import PageObjects.SearchResultsPage;
 import dataProviders.SearchProvider;
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -23,13 +24,15 @@ public class TestSearch extends BaseClass {
         int results = Integer.parseInt(expectedResult);
 
         //POM
-        SearchPage searchPage = new SearchPage(driver);
-        searchPage.searchInput(searchCriteria);
+        //SearchPage searchPage = new SearchPage(driver);
+        //searchPage.searchInput(searchCriteria);
 
-        //WebElement searchInput = driver.findElement(By.name("search"));
-        //searchInput.sendKeys(searchCriteria, Keys.ENTER);
+        WebElement searchInput = driver.findElement(By.name("search"));
+        searchInput.sendKeys(searchCriteria, Keys.ENTER);
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("search="+searchCriteria));
+        // Assert.assertEquals(results.size(), expectedResult,
+        //        String.format("Expecting %s results, but got %s", expectedResult, results.size()));
+
         Assert.assertEquals(getResults(), results,
                 "Expecting " + expectedResult + " results, but got " + getResults());
     }
@@ -42,11 +45,16 @@ public class TestSearch extends BaseClass {
         int expectedResult = 0;
 
         //POM
-        SearchPage searchPage = new SearchPage(driver);
-        searchPage.searchInput(searchCriteria);
+       // SearchPage searchPage = new SearchPage(driver);
+        //searchPage.searchInput(searchCriteria);
 
-        //WebElement searchInput = driver.findElement(By.name("search"));
-        //searchInput.sendKeys(searchCriteria, Keys.ENTER);
+        WebElement searchInput = driver.findElement(By.name("search"));
+        searchInput.sendKeys(searchCriteria, Keys.ENTER);
+
+        //Assert.assertTrue(driver.getCurrentUrl().contains("search="+searchCriteria));
+
+        //Assert.assertEquals(results.size(), expectedResult,
+        //        String.format("Expecting %s results, but got %s", expectedResult, results.size()));
 
         Assert.assertEquals(getResults(), expectedResult,
                 "Expecting " + expectedResult + " results, but got " + getResults());

@@ -10,8 +10,7 @@ public class AddToCartTests extends BaseClass {
 
     @Description ("Validate That add to cart is working")
     @Test
-    public void  Test_Add_T0_Cart_Functionality(){
-
+    public void  Test_Add_To_Cart_Functionality(){
         /**
          * opciones de navegación
          * 1. search
@@ -33,13 +32,12 @@ public class AddToCartTests extends BaseClass {
         Assert.assertTrue(productPage.isAlertSuccessDisplayed());
         headerPage.clickOnCartButton();
         try {
-            Thread.sleep(2);
+            Thread.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         //Assert.assertTrue(shoppingCartPage.isProductNameDisplayed(name), "Title was not displayed");
         Assert.assertEquals(shoppingCartPage.getProductQuantity(), quantity, "Quantity is not matching");
-
 
     }
 

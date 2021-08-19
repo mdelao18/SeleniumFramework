@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseClass extends PageObjectHandler {
 
-   protected WebDriver driver;
 
     @Parameters({"browser"})
     @BeforeMethod
