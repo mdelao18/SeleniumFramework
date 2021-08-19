@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class SearchPage {
+public class SearchPage_OLD {
 
     private WebDriver driver;
 
     //Elementos
     private By searchLocator = By.name("search");
 
-    public SearchPage(WebDriver _driver){
+    public SearchPage_OLD(WebDriver _driver){
         this.driver = _driver;
     }
 

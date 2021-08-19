@@ -1,19 +1,19 @@
 package PageObjects;
 
+import org.jsoup.Connection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     private WebDriver driver;
 
     private By emailInputLocator = By.name("email");
     private By passwordInputLocator = By.name("password");
     private By submitButtonSelector = By.cssSelector("[value='Login']");
 
-    public LoginPage(WebDriver _driver) {
-        this.driver = _driver;
-
+    public LoginPage(WebDriver _driver){
+        super(_driver);
     }
 
     public void EnterEmail(String email) {

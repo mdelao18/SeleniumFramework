@@ -7,7 +7,7 @@ import PageObjects.SearchResultsPage;
 import okhttp3.internal.http2.Header;
 import org.openqa.selenium.WebDriver;
 
-public class PageObjectHandler {
+public class PageObjectHandler_OLD {
 
     public WebDriver driver;
 
@@ -16,7 +16,7 @@ public class PageObjectHandler {
     private RegisterPage registerPage;
     private SearchResultsPage searchResultsPage;
 
-    public PageObjectHandler(){}
+    public PageObjectHandler_OLD(){}
 
     public HeaderPage headerPage(){
         if(this.headerPage == null)

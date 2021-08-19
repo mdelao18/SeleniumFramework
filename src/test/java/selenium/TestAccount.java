@@ -1,8 +1,8 @@
 package selenium;
 
-import PageObjects.BaseClass;
+import PageObjects.BaseClass_OLD;
 import PageObjects.LoginPage;
-import dataProviders.SearchProvider;
+import PageObjects.Utils;
 import dataProviders.UsersProvider;
 import io.qameta.allure.Description;
 import org.openqa.selenium.*;
@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import pojo.UserAccount;
 
-public class TestAccount extends BaseClass {
+public class TestAccount extends BaseClass_OLD {
     public static final String ERROR_EMAIL_AND_PASSWORD_INVALID_MESSAGE = "warning: no match for e-mail address and/or password.";
 
     //elements
@@ -51,25 +51,6 @@ public class TestAccount extends BaseClass {
     }
 
 
-    @Description("Validate a user can be created successfully")
-    @Test(description = "Test Create New User: Test_Create_New_Account")
-    public void Test_Create_New_Account(){
-        //SETUP
-        String firstName = "Maria";
-        String lastName = "Piedra";
-        String email = "maria@piedra.com";
-        String telephone = "11111";
-        String password = "asdf";
-        String expectedMessage = "Your Account Has Been Created!";
-
-        //RUN
-        registerPage().GoTo();
-        registerPage().FillForm(firstName, lastName, email, telephone, password);
-
-        //VALIDATION
-        Assert.assertEquals(registerPage().GetConfirmationMessage(), expectedMessage);
-    }
-
     @Test (dataProvider = "getUsersData", dataProviderClass = UsersProvider.class)
     public void Test_Login_With_Data(UserAccount testUser){// funciona
         LoginPage loginPage = new LoginPage(driver);
@@ -82,6 +63,43 @@ public class TestAccount extends BaseClass {
         else
             Assert.assertEquals(ERROR_EMAIL_AND_PASSWORD_INVALID_MESSAGE.toLowerCase(), driver.findElement(alertMessageLocator).getText().toLowerCase().trim());
     }
+
+    @Description("Validate a user can be created successfully")
+    @Test(description = "Test Create New User: Test_Create_New_Account")
+    public void Test_Create_New_Account(){
+        //SETUP
+        String firstName = "Maria";
+        String lastName = "Piedra";
+        String email = "maria@piedra.com";
+      //  String email = Utils.generateRandomEmail();
+        String telephone = "11111";
+        String password = "asdf";
+        String expectedMessage = "Your Account Has Been Created!";
+
+        //RUN
+        registerPage().GoTo();
+        registerPage().FillForm(firstName, lastName, email, telephone, password);
+
+        //VALIDATION
+        Assert.assertEquals(registerPage().GetConfirmationMessage(), expectedMessage);
+    }
+
+
+
+    @Test
+    public void Test_Duplicated_Email(){
+
+    }
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Open browser

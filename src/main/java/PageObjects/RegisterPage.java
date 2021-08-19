@@ -1,9 +1,10 @@
 package PageObjects;
 
+import org.jsoup.Connection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RegisterPage{
+public class RegisterPage extends BasePage {
     private WebDriver driver;
 
     //Elementos
@@ -19,8 +20,9 @@ public class RegisterPage{
 
 
     public RegisterPage(WebDriver _driver){
-        this.driver = _driver;
+        super(_driver);
     }
+
     public void GoTo(){
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.clickOnMyAccount();

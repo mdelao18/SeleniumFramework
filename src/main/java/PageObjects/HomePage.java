@@ -1,13 +1,13 @@
 package PageObjects;
 
+import Selectors.HomePageLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import Selectors.HomePageLocators;
 
-public class HomePage extends BaseClass {
+public class HomePage extends BasePage {
 
-    public HomePage(WebDriver _driver) {
-        this.driver = _driver;
+    public HomePage(WebDriver _driver){
+        super(_driver);
     }
 
     public String getFirstProductName() {
@@ -22,6 +22,11 @@ public class HomePage extends BaseClass {
         String name = getFirstProductName();
         selectProductByName(name);
         return name;
+    }
+
+    public void GoTo(){
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.clickOnYourStoreButton();
     }
 
 }
