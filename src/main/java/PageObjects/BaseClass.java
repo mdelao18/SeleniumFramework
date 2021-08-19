@@ -2,11 +2,9 @@ package PageObjects;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
@@ -26,6 +24,9 @@ public class BaseClass extends PageObjectHandler {
                 driver = new FirefoxDriver();
                 break;
             case "IE":
+
+                //WebDriverManager.edgedriver().setup();
+                //driver = new EdgeDriver();
                 WebDriverManager.iedriver().setup();
                 driver = new InternetExplorerDriver();
                 break;

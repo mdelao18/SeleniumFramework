@@ -18,7 +18,7 @@ public class TestAccount extends BaseClass {
     public By alertMessageLocator = By.xpath("//div[contains(@class, 'alert-danger')]");
 
     @Description("Validate test login was successful")
-    @Test(description = "Test Login Success")
+    @Test(description = "Test Login Success:  Test_Login_Successful")
     public void Test_Login_Successful(){
         String username = "mdelao18@gmail.com";
         String password = "2020meli123";
@@ -37,7 +37,7 @@ public class TestAccount extends BaseClass {
     }
 
     @Description("Validate that the login is working with non valid credentials")
-    @Test(description = "Test Login Not Success")
+    @Test(description = "Test Login Not Success: Test_Login_Unsuccessfu")
     public void Test_Login_Unsuccessful(){
         String username = "mdelao18@gmail.com";
         String password = "202012345"; // password incorrecto
@@ -52,12 +52,12 @@ public class TestAccount extends BaseClass {
 
 
     @Description("Validate a user can be created successfully")
-    @Test(description = "Test Create New User")
+    @Test(description = "Test Create New User: Test_Create_New_Account")
     public void Test_Create_New_Account(){
         //SETUP
-        String firstName = "Mirna";
-        String lastName = "Pie";
-        String email = "mirna@pie.com";
+        String firstName = "Maria";
+        String lastName = "Piedra";
+        String email = "maria@piedra.com";
         String telephone = "11111";
         String password = "asdf";
         String expectedMessage = "Your Account Has Been Created!";
