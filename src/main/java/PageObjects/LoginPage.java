@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 
 public class LoginPage extends BasePage {
-    private WebDriver driver;
+    //private WebDriver driver;
 
     private By emailInputLocator = By.name("email");
     private By passwordInputLocator = By.name("password");

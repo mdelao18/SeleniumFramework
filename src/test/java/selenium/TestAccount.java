@@ -1,8 +1,6 @@
 package selenium;
 
-import PageObjects.BaseClass_OLD;
 import PageObjects.LoginPage;
-import PageObjects.Utils;
 import dataProviders.UsersProvider;
 import io.qameta.allure.Description;
 import org.openqa.selenium.*;
@@ -10,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import pojo.UserAccount;
 
-public class TestAccount extends BaseClass_OLD {
+public class TestAccount extends BaseClass  {
     public static final String ERROR_EMAIL_AND_PASSWORD_INVALID_MESSAGE = "warning: no match for e-mail address and/or password.";
 
     //elements
@@ -68,9 +66,9 @@ public class TestAccount extends BaseClass_OLD {
     @Test(description = "Test Create New User: Test_Create_New_Account")
     public void Test_Create_New_Account(){
         //SETUP
-        String firstName = "Maria";
+        String firstName = "Mariano";
         String lastName = "Piedra";
-        String email = "maria@piedra.com";
+        String email = "mariano@piedra.com";
       //  String email = Utils.generateRandomEmail();
         String telephone = "11111";
         String password = "asdf";

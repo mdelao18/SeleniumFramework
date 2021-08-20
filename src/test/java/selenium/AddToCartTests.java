@@ -41,4 +41,19 @@ public class AddToCartTests extends BaseClass {
 
     }
 
+    @Description("Validate several items added to the cart")
+    @Test
+    public void Test_Several_Items_Added_To_The_Cart(){
+        homePage().selectProductByName("MacBook");
+        productPage().SetQuantity(2);
+        productPage().clickAddButton();
+        homePage().GoTo();
+        homePage().selectProductByName("iPhone");
+        productPage().SetQuantity(5);
+        productPage().clickAddButton();
+        headerPage().clickOnCartButton();
+        Assert.assertEquals(shoppingCartPage().getAmountOfShoppingCartRows(), 2, "Expected to get 2 rows");
+    }
+
+
 }

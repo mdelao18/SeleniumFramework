@@ -1,6 +1,6 @@
 package selenium;
 
-//import PageObjects.SearchPage;
+
 import PageObjects.SearchResultsPage;
 import dataProviders.SearchProvider;
 import io.qameta.allure.Description;
@@ -12,9 +12,9 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pojo.SearchData;
-import PageObjects.BaseClass_OLD;
 
-public class TestSearch extends BaseClass_OLD {
+
+public class TestSearch extends BaseClass  {
 
     @Description("Validate the search option")
     @Test(description = "Search option")
