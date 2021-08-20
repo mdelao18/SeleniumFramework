@@ -1,6 +1,7 @@
 package selenium;
 
 import PageObjects.LoginPage;
+import PageObjects.Utils;
 import dataProviders.UsersProvider;
 import io.qameta.allure.Description;
 import org.openqa.selenium.*;
@@ -62,14 +63,16 @@ public class TestAccount extends BaseClass  {
             Assert.assertEquals(ERROR_EMAIL_AND_PASSWORD_INVALID_MESSAGE.toLowerCase(), driver.findElement(alertMessageLocator).getText().toLowerCase().trim());
     }
 
+
+     //Proyecto Caso de prueba 1 e-mail random
     @Description("Validate a user can be created successfully")
     @Test(description = "Test Create New User: Test_Create_New_Account")
     public void Test_Create_New_Account(){
         //SETUP
-        String firstName = "Mariano";
-        String lastName = "Piedra";
-        String email = "mariano@piedra.com";
-      //  String email = Utils.generateRandomEmail();
+        String firstName = "Melissa";
+        String lastName = "De La O";
+        //String email = "mdelao18@gmai.com";
+        String email = Utils.generateRandomEmail();
         String telephone = "11111";
         String password = "asdf";
         String expectedMessage = "Your Account Has Been Created!";
@@ -81,12 +84,25 @@ public class TestAccount extends BaseClass  {
         //VALIDATION
         Assert.assertEquals(registerPage().GetConfirmationMessage(), expectedMessage);
     }
-
-
-
-    @Test
+    //Proyecto Caso 1 Usuario registrado
+    @Description("Validate the e-mail is already registered")
+    @Test(description = "This test case verifies the user is already registered")
     public void Test_Duplicated_Email(){
 
+        //SETUP
+        String firstName = "Mariano";
+        String lastName = "Piedra";
+        String email = "mdelao18@gmail.com";
+        String telephone = "11111";
+        String password = "asdf";
+        String expectedMessage = "Warning: E-Mail Address is already registered!";
+
+        //RUN
+        registerPage().GoTo();
+        registerPage().FillForm(firstName, lastName, email, telephone, password);
+
+        //VALIDATION
+        Assert.assertEquals(registerPage().DuplicatedErrorMessage(), expectedMessage);
     }
 
 

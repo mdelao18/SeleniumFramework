@@ -14,6 +14,7 @@ public class HeaderPage extends BasePage{
     private By shoppingCartLocator = By.linkText("Shopping Cart");
     private By yourStoreButtonLocator = By.linkText("Your Store");
 
+
     public HeaderPage(WebDriver _driver){
         super(_driver);
     }
@@ -31,4 +32,5 @@ public class HeaderPage extends BasePage{
         driver.findElement(shoppingCartLocator).click();
     }
     public void clickOnYourStoreButton() {driver.findElement(yourStoreButtonLocator).click();}
+
 }

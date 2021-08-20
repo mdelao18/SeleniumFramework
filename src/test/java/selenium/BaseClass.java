@@ -5,6 +5,7 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -15,6 +16,9 @@ import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class BaseClass extends PageObjectHandler {
+
+    WebElement searchInput;
+
     @Parameters({"browser"})
     @BeforeMethod
     public void beforeMethod(@Optional("chrome") String browser) throws MalformedURLException, InterruptedException {

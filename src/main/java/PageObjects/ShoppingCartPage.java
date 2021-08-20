@@ -16,6 +16,10 @@ public class ShoppingCartPage extends BasePage {
     private By imageSelector = By.cssSelector("img");
     private By shoppingCartRows = By.xpath("//div[@id='content']//div[contains(@class, 'table-responsive')]//tr");
 
+    private By GetProductAddedInCartMessageLocator = By.xpath("//*[contains(@class, 'alert-success alert-dismissible')]");
+    private By ProductNotAvailableMessageLocator = By.xpath("//*[contains(@class, 'alert-danger alert-dismissible')]");
+    private By checkoutButtonLocator = By.xpath("//*[contains(@class,'btn btn-primary')]");
+
     public ShoppingCartPage(WebDriver _driver){
         super(_driver);
     }
@@ -44,6 +48,19 @@ public class ShoppingCartPage extends BasePage {
     }
     public int getAmountOfShoppingCartRows(){
         return driver.findElements(shoppingCartRows).size() - 1;
+    }
+
+    //Proyecto
+    public String getProductAddedInCartMessage(){
+        return driver.findElement(GetProductAddedInCartMessageLocator).getText();
+    }
+
+    public String getProductNotAvailableMessage(){
+        return driver.findElement(ProductNotAvailableMessageLocator).getText();
+    }
+
+    public void clickOnCheckoutButton() {
+        driver.findElement(checkoutButtonLocator).click();
     }
 
 }
