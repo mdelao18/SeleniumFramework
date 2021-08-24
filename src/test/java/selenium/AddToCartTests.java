@@ -4,14 +4,12 @@ import PageObjects.HeaderPage;
 import PageObjects.HomePage;
 import PageObjects.ProductPage;
 import PageObjects.ShoppingCartPage;
+import dataProviders.ProductProvider;
 import io.qameta.allure.Description;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import pojo.Products;
 
 public class AddToCartTests extends BaseClass {
 
@@ -62,35 +60,24 @@ public class AddToCartTests extends BaseClass {
         Assert.assertEquals(shoppingCartPage().getAmountOfShoppingCartRows(), 2, "Expected to get 2 rows");
     }
 
+
+    //****************************************************************************
     //Proyecto caso de prueba 2
-    @Description("Products can be added at the shopping cart ")
-    @Test(description = "This test case verifies the products can be added at the shopping cart")
-    @Parameters({"searchCriteria"})
-    public void Test_Item_Added(@Optional("Macbook Air") String searchCriteria) {
-        String productAddedMessage = "Success: You have added MacBook Air to your shopping cart!\n" +
-                "×";
-
-        productPage().addProductInSearch(searchCriteria);
-        productPage().clickOnProductSearched();
-        productPage().SetQuantity(3);
-        productPage().clickAddButton();
-        Assert.assertEquals(shoppingCartPage().getProductAddedInCartMessage(), productAddedMessage);
-
-    }
-
-    //Proyecto caso de prueba 2
-    @Description("Products aren't available to be added at the shopping cart ")
-    @Test(description = "This test case verifies the unavailable products can't be added at the shopping cart")
-    @Parameters({"searchCriteria"})
+    @Description("Products can be added / If products unavailable checkout can't be made ")
+    @Test(description = "This test case verifies products can be added but if they are unavailable the checkout can't be made")
     public void Test_Items_Not_Available(@Optional("Macbook Air") String searchCriteria) {
 
         String productNotAvailableMessage = "Products marked with *** are not available in the desired quantity or not in stock!\n" +
+                "×";
+        String productAddedMessage = "Success: You have added MacBook Air to your shopping cart!\n" +
                 "×";
 
         productPage().addProductInSearch(searchCriteria);
         productPage().clickOnProductSearched();
         productPage().SetQuantity(15000);
         productPage().clickAddButton();
+        Assert.assertEquals(shoppingCartPage().getProductAddedInCartMessage(), productAddedMessage);
+
         headerPage().clickOnCartButton();
         shoppingCartPage().clickOnCheckoutButton();
         Assert.assertEquals(shoppingCartPage().getProductNotAvailableMessage(), productNotAvailableMessage);
@@ -98,15 +85,18 @@ public class AddToCartTests extends BaseClass {
 
 
     //Proyecto caso de prueba 3
-    @Description("Product prices are the same even in different currency")
-    @Test(description = "This test case verifies product prices are the same even in different currency")
-    @Parameters({"product"})
-    public void Test_Validate_ProductPrice(@Optional("Macbook") String product, boolean dollarPrice, boolean poundsPrice, boolean euroPrice) {
-        productPage().addProductInSearch(product);
-        productPage().clickOnProductSearched();
+    @Description("Product prices comparison in different currencies")
+    @Test(dataProvider = "getUsersDataFromJson", dataProviderClass = ProductProvider.class)
+    public void Test_Validate_ProductPrice(Products testData) {
+        homePage().selectProductByName(testData.getProduct());
 
+        headerPage().goToEuroCurrency();
+        Assert.assertEquals(testData.getEuroPrice(), Double.parseDouble(productPage().getProductPrice().replace("€","")));
 
+        headerPage().goToPoundSterlingCurrency();
+        Assert.assertEquals(testData.getPoundSterlingPrice(), Double.parseDouble(productPage().getProductPrice().replace("£","")));
+
+        headerPage().goToDollarCurrency();
+        Assert.assertEquals(testData.getDollarsPrice(), Double.parseDouble(productPage().getProductPrice().replace("$","")));
     }
-
-
 }

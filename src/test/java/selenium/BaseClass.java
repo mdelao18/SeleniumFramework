@@ -38,7 +38,7 @@ public class BaseClass extends PageObjectHandler {
         }
         driver.manage().window().maximize();
         driver.get("https://demo.opencart.com/");
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
     }
 
     @AfterMethod(alwaysRun = true)

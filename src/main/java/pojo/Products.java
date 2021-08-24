@@ -2,18 +2,15 @@ package pojo;
 
 public class Products {
 
-
-
     private String product;
     private double dollarsPrice;
-    private double poundsPrice;
+    private double poundSterlingPrice;
     private double euroPrice;
 
-
-    public Products(String _product, double _dollarsPrice, double _poundsPrice, double _euroPrice) {
+    public Products(String _product, double _dollarsPrice, double _poundSterlingPrice, double _euroPrice) {
         this.product = _product;
         this.dollarsPrice = _dollarsPrice;
-        this.poundsPrice = _poundsPrice;
+        this.poundSterlingPrice = _poundSterlingPrice;
         this.euroPrice = _euroPrice;
     }
 
@@ -24,6 +21,7 @@ public class Products {
     public void setProduct(String product) {
         this.product = product;
     }
+
     public double getDollarsPrice() {
         return dollarsPrice;
     }
@@ -32,12 +30,12 @@ public class Products {
         this.dollarsPrice = dollarsPrice;
     }
 
-    public double getPoundsPrice() {
-        return poundsPrice;
+    public double getPoundSterlingPrice() {
+        return poundSterlingPrice;
     }
 
-    public void setPoundsPrice(double poundsPrice) {
-        this.poundsPrice = poundsPrice;
+    public void setPoundsSterlingPrice(double poundSterlingPrice) {
+        this.poundSterlingPrice = poundSterlingPrice;
     }
 
     public double getEuroPrice() {
@@ -47,6 +45,4 @@ public class Products {
     public void setEuroPrice(double euroPrice) {
         this.euroPrice = euroPrice;
     }
-
-
 }

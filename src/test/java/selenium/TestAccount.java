@@ -63,10 +63,10 @@ public class TestAccount extends BaseClass  {
             Assert.assertEquals(ERROR_EMAIL_AND_PASSWORD_INVALID_MESSAGE.toLowerCase(), driver.findElement(alertMessageLocator).getText().toLowerCase().trim());
     }
 
-
-     //Proyecto Caso de prueba 1 e-mail random
-    @Description("Validate a user can be created successfully")
-    @Test(description = "Test Create New User: Test_Create_New_Account")
+     //****************************************************************************
+     //Proyecto Caso de prueba 1
+    @Description("Validate user can be created successfully with an email generated randomly")
+    @Test(description = "This test case verifies user can be created successfully with an email generated randomly ")
     public void Test_Create_New_Account(){
         //SETUP
         String firstName = "Melissa";
@@ -84,7 +84,7 @@ public class TestAccount extends BaseClass  {
         //VALIDATION
         Assert.assertEquals(registerPage().GetConfirmationMessage(), expectedMessage);
     }
-    //Proyecto Caso 1 Usuario registrado
+    //Proyecto Caso 1
     @Description("Validate the e-mail is already registered")
     @Test(description = "This test case verifies the user is already registered")
     public void Test_Duplicated_Email(){

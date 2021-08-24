@@ -1,11 +1,34 @@
 {
   "dataSet": [
     {
-      "product": "mackbook",
-      "password": "mackbook_1-47x47.jpg",
-      "dollarsPrice":602.00,
-      "poundsPrice": 454.10,
+      "product": "MacBook",
+      "dollarsPrice": 602.00,
+      "poundSterlingPrice": 454.10,
       "euroPrice": 518.16
+    },
+    {
+      "product": "Canon EOS 5D",
+      "dollarsPrice": 98.00,
+      "poundSterlingPrice": 73.92,
+      "euroPrice": 84.35
+    },
+    {
+      "product": "iphone",
+      "dollarsPrice": 123.20,
+      "poundSterlingPrice": 92.93,
+      "euroPrice": 106.04
+    },
+    {
+      "product": "Apple Cinema 30",
+      "dollarsPrice": 110.00,
+      "poundSterlingPrice": 82.98,
+      "euroPrice": 94.68
     }
-]
-    }
+  ]
+}
+
+
+
+
+
+

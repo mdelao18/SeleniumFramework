@@ -49,4 +49,6 @@ public class RegisterPage extends BasePage {
         return driver.findElement(DuplicatedErrorMessageLocator).getText();
     }
 
+
+
 }

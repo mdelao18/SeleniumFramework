@@ -14,6 +14,9 @@ public class ProductPage extends BasePage{
     public By clickOnProductSearchedLocator = By.xpath("//*[@id=\"content\"]/div[3]/div/div/div[1]/a/img");
     public By addProductInSearchLocator = By.name("search");
 
+    public By productPriceLocator = By.xpath("//*[@id=\"content\"]/div/div[2]/ul[2]/li[1]/h2");
+
+
     public ProductPage(WebDriver _driver){
         super(_driver);
     }
@@ -42,5 +45,8 @@ public class ProductPage extends BasePage{
 
     public void addProductInSearch (String _product) {
         driver.findElement(addProductInSearchLocator).sendKeys(_product,Keys.ENTER);
+    }
+    public String getProductPrice (){
+       return driver.findElement(productPriceLocator).getText();
     }
 }

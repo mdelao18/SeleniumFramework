@@ -16,6 +16,8 @@ import pojo.SearchData;
 
 public class TestSearch extends BaseClass  {
 
+
+
     @Description("Validate the search option")
     @Test(description = "Search option")
     @Parameters({"searchCriteria", "expectedResult"})
