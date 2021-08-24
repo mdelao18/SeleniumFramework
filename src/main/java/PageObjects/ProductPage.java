@@ -13,7 +13,6 @@ public class ProductPage extends BasePage{
     public By AlertSuccess = By.cssSelector(".alert-success");
     public By clickOnProductSearchedLocator = By.xpath("//*[@id=\"content\"]/div[3]/div/div/div[1]/a/img");
     public By addProductInSearchLocator = By.name("search");
-
     public By productPriceLocator = By.xpath("//*[@id=\"content\"]/div/div[2]/ul[2]/li[1]/h2");
 
 

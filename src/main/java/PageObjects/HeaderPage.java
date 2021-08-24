@@ -61,8 +61,4 @@ public class HeaderPage extends BasePage{
         headerPage.clickOnDollarButton();
     }
 
-
-
-
-
 }

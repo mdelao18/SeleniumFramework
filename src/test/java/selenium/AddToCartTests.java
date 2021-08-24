@@ -88,7 +88,8 @@ public class AddToCartTests extends BaseClass {
     @Description("Product prices comparison in different currencies")
     @Test(dataProvider = "getUsersDataFromJson", dataProviderClass = ProductProvider.class)
     public void Test_Validate_ProductPrice(Products testData) {
-        homePage().selectProductByName(testData.getProduct());
+        productPage().addProductInSearch(testData.getProduct());
+        productPage().clickOnProductSearched();
 
         headerPage().goToEuroCurrency();
         Assert.assertEquals(testData.getEuroPrice(), Double.parseDouble(productPage().getProductPrice().replace("€","")));
